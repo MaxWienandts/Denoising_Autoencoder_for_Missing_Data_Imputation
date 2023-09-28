@@ -1,4 +1,4 @@
-# Denoising_Autoencoder_to_Missing_Data_Imputation
+# Denoising Autoencoder for Missing Data Imputation
 When to use Denoising Autoencoder as a method to impute missing values? 
 
 In this project I will show you how to use Denoising Autoencoders to fill missing values. Moreover, I will compare the results of a classification model with different proportions of missing values when using Denoising Autoencoder and when using more classical techniques of imputation such as using the median (for continuous variables) or a new label indicating missing values (for categorical variables). What is more, I will perform this study in 2 different data sets (“Wine Quality” - https://archive.ics.uci.edu/dataset/186/wine+quality, and “Secondary Mushroom Dataset” - https://archive.ics.uci.edu/dataset/848/secondary+mushroom+dataset), and in 3 different situations. The first situation is when we have only continuous variables. The second, when we have only categorical variables. Lastly, when we have both continuous and categorical variables.
