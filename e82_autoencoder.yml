@@ -1,0 +1,58 @@
+# Update conda: conda update -n base -c defaults conda
+# Create: conda env create --file e82_autoencoder.yml
+# Remove: conda remove --name e82_autoencoder --all
+# Activate: conda activate e82_autoencoder
+
+name: e82_autoencoder
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+- python==3.10
+- pip
+- jupyterlab==4.0.5
+- numpy==1.25.2
+- pandas
+- scipy>=1.5.2
+- matplotlib
+- seaborn==0.12.2
+- scikit-learn==1.3.0
+- lightgbm
+
+
+#- cudatoolkit=11.2
+#- cudnn=8.1.0
+#- tensorflow<2.11
+
+# To install Tensorflow (Windows):
+# conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+# pip install "tensorflow<2.11"
+# To test GPU:
+# python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+# To install Tensorflow (Linux):
+# pip install --upgrade pip
+# Test NVIDIA GPU dreiver: nvidia-smi
+# install CUDA and cuDNN with conda and pip:
+# conda install -c conda-forge cudatoolkit=11.8.0
+# pip install nvidia-cudnn-cu11==8.6.0.163
+# mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+# echo 'CUDNN_PATH=$(dirname $(python -c "import nvidia.cudnn;print(nvidia.cudnn.__file__)"))' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+# echo 'export LD_LIBRARY_PATH=$CUDNN_PATH/lib:$CONDA_PREFIX/lib/:$LD_LIBRARY_PATH' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+# Install TensorFlow:
+# pip install tensorflow==2.13.*
+# Ubunto 22.04 fix:
+# Install NVCC:
+# conda install -c nvidia cuda-nvcc=11.3.58
+# Configure the XLA cuda directory:
+# mkdir -p $CONDA_PREFIX/etc/conda/activate.d
+# printf 'export XLA_FLAGS=--xla_gpu_cuda_data_dir=$CONDA_PREFIX/lib/\n' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+# source $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+# Copy libdevice file to the required path:
+# mkdir -p $CONDA_PREFIX/lib/nvvm/libdevice
+# cp $CONDA_PREFIX/lib/libdevice.10.bc $CONDA_PREFIX/lib/nvvm/libdevice/
+# Verify the GPU setup:
+# python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
